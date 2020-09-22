@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
-    <head>
-<title> TITRE </title>
-        
-    </head>
 
-    <body>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js" integrity="sha512-RjPwl9YNS2z4nf50767Vg8dW2WLVv8WmKMYhZVBgiCJaiGVNIjXcVcpzVLUzuojaUM5ACZefP6sXnaWkR0lj0w==" crossorigin="anonymous"></script>
-        <script>
-            const socket = io('http://localhost:3000');
-        </script>
-    </body>
+<head>
+    <title> TITRE </title>
+
+</head>
+
+<body>
+    <!-- on a pris ça dans cdn socket.io -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js"
+        integrity="sha512-RjPwl9YNS2z4nf50767Vg8dW2WLVv8WmKMYhZVBgiCJaiGVNIjXcVcpzVLUzuojaUM5ACZefP6sXnaWkR0lj0w=="
+        crossorigin="anonymous"></script>
+    <script>
+        const socket = io(`http://localhost:3000?name=Ichai-${Math.floor(Math.random() * 5)}`);
+
+        socket.on('connected', msg =>{
+            console.log(msg);
+        
+        });
+// socket.on('starting')
+
+// A chaque action de l'écran socket.emit 
+    </script>
+</body>
+
 </html>
