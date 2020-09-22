@@ -1,13 +1,16 @@
 import http from 'http';
 import socketIO from 'socket.io';
 import { startGame } from './game';
+import * as fct from './FCT';
+import player from './player';
+
 
 
 // Créer le serveur http et écris Hello word
 const server = http.createServer((req,res)=>{
     res.write('Hello world');
     res.end();
-});
+}); 
 // Créer l'objet de type server
 const io = socketIO(server);
 // Quand quelqu'un se connecte , affiche un message dans la console
@@ -27,8 +30,8 @@ io.on('connection', socket => {
 // Ici faire les actions ( je crois )
 // if player.length === 2){ 
 //    startgame();
-//}
-    socket.emit('connected' ,'you are connected');
+
+    socket.emit('connected',players);
 // Si déconnexion, affiche sur la log disconnected    
     socket.on('disconnect', () => {
         console.log('someone has disconnected');
@@ -44,3 +47,4 @@ server.listen(port, () => {
     console.log(`Server listening: http://localhost:${port}`);
 
 });
+

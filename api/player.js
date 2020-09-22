@@ -1,11 +1,11 @@
-class player {
+export default class player {
     name; 
     pokemon;
     socket;
 
     constructor(p_name,p_pokemon,p_socket){
-        name = p_name;
-        pokemon = p_pokemon;
-        socket = p_socket;
+        this.name = p_name;
+        this.pokemon = p_pokemon;
+        this.socket = p_socket;
     }
 }
